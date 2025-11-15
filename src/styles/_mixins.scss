@@ -1,0 +1,63 @@
+@import './variables';
+
+// Responsive mixins
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  }
+}
+
+// Flexbox mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Button mixin
+@mixin button-base {
+  padding: $spacing-md $spacing-xl;
+  border-radius: $border-radius-md;
+  font-weight: 600;
+  transition: $transition-base;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+// Card mixin
+@mixin card {
+  background: $white;
+  border-radius: $border-radius-xl;
+  box-shadow: $shadow-lg;
+  transition: $transition-base;
+  
+  &:hover {
+    box-shadow: $shadow-2xl;
+    transform: translateY(-4px);
+  }
+}

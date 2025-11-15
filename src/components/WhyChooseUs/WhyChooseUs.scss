@@ -1,0 +1,123 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.why-choose-us {
+  padding: $spacing-5xl 0;
+  background: linear-gradient(to bottom right, $primary-lighter, $white, $primary-lighter);
+  
+  &__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+  }
+  
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-4xl;
+  }
+  
+  &__title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: $gray-900;
+    margin-bottom: $spacing-lg;
+    
+    @include respond-to(sm) {
+      font-size: 3rem;
+    }
+  }
+  
+  &__subtitle {
+    font-size: 1.25rem;
+    color: $gray-600;
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-2xl;
+    margin-bottom: $spacing-4xl;
+    
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include respond-to(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  &__cta {
+    background: linear-gradient(to right, $primary-color, $primary-dark);
+    border-radius: $border-radius-2xl;
+    padding: $spacing-3xl;
+    text-align: center;
+    box-shadow: $shadow-2xl;
+    
+    h3 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: $white;
+      margin-bottom: $spacing-lg;
+    }
+    
+    p {
+      font-size: 1.25rem;
+      color: $primary-lighter;
+      margin-bottom: $spacing-2xl;
+      max-width: 32rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    button {
+      @include button-base;
+      background: $white;
+      color: $primary-color;
+      font-size: 1.125rem;
+      box-shadow: $shadow-xl;
+      
+      &:hover {
+        background: $primary-lighter;
+        box-shadow: $shadow-2xl;
+      }
+    }
+  }
+}
+
+.benefit-card {
+  @include card;
+  padding: $spacing-2xl;
+  border: 1px solid $gray-100;
+  
+  &:hover {
+    border-color: $primary-light;
+  }
+  
+  &__icon {
+    background: $primary-lighter;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: $border-radius-lg;
+    @include flex-center;
+    margin-bottom: $spacing-lg;
+    
+    svg {
+      color: $primary-color;
+    }
+  }
+  
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $gray-900;
+    margin-bottom: $spacing-md;
+  }
+  
+  &__description {
+    color: $gray-600;
+    line-height: 1.75;
+  }
+}

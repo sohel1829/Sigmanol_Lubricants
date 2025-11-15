@@ -1,0 +1,131 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.products {
+  padding: $spacing-5xl 0;
+  background: $white;
+  
+  &__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+  }
+  
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-4xl;
+  }
+  
+  &__title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: $gray-900;
+    margin-bottom: $spacing-lg;
+    
+    @include respond-to(sm) {
+      font-size: 3rem;
+    }
+  }
+  
+  &__subtitle {
+    font-size: 1.25rem;
+    color: $gray-600;
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-2xl;
+    
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include respond-to(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.product-card {
+  @include card;
+  overflow: hidden;
+  border: 1px solid $gray-200;
+  
+  &__image-wrapper {
+    position: relative;
+    height: 12rem;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: $transition-base;
+    }
+  }
+  
+  &:hover &__image-wrapper img {
+    transform: scale(1.1);
+  }
+  
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(30, 58, 138, 0.8), transparent);
+  }
+  
+  &__icon {
+    position: absolute;
+    bottom: $spacing-lg;
+    left: $spacing-lg;
+    background: $white;
+    padding: $spacing-md;
+    border-radius: $border-radius-lg;
+    
+    svg {
+      color: $primary-color;
+    }
+  }
+  
+  &__content {
+    padding: $spacing-xl;
+  }
+  
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $gray-900;
+    margin-bottom: $spacing-md;
+  }
+  
+  &__description {
+    color: $gray-600;
+    margin-bottom: $spacing-lg;
+    line-height: 1.75;
+  }
+  
+  &__features {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+  
+  &__feature {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: $gray-600;
+  }
+  
+  &__feature-dot {
+    width: 6px;
+    height: 6px;
+    background: $primary-color;
+    border-radius: 50%;
+    margin-right: $spacing-sm;
+    flex-shrink: 0;
+  }
+}
