@@ -1,0 +1,132 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  transition: $transition-base;
+  
+  &.scrolled {
+    background: $white;
+    box-shadow: $shadow-md;
+  }
+  
+  &__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+  }
+  
+  &__content {
+    @include flex-between;
+    height: 5rem;
+  }
+  
+  &__logo {
+    cursor: pointer;
+    
+    img {
+      height: 3rem;
+      width: auto;
+      object-fit: contain;
+    }
+  }
+  
+  &__menu {
+    display: none;
+    align-items: center;
+    gap: $spacing-xl;
+    
+    @include respond-to(md) {
+      display: flex;
+    }
+    
+    button {
+      background: none;
+      border: none;
+      color: $gray-700;
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: $transition-fast;
+      
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+  
+  &__cta {
+    background: $primary-color !important;
+    color: $white !important;
+    padding: 0.625rem 1.5rem;
+    border-radius: $border-radius-md;
+    
+    &:hover {
+      background: $primary-dark !important;
+    }
+  }
+  
+  &__mobile-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: $gray-700;
+    cursor: pointer;
+    transition: $transition-fast;
+    
+    @include respond-to(md) {
+      display: none;
+    }
+    
+    &:hover {
+      color: $primary-color;
+    }
+  }
+  
+  &__mobile-menu {
+    background: $white;
+    border-top: 1px solid $gray-200;
+    box-shadow: $shadow-lg;
+    padding: $spacing-lg;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    
+    @include respond-to(md) {
+      display: none;
+    }
+    
+    button {
+      width: 100%;
+      text-align: left;
+      padding: $spacing-md $spacing-lg;
+      background: none;
+      border: none;
+      color: $gray-700;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: $border-radius-md;
+      transition: $transition-fast;
+      
+      &:hover {
+        background: $primary-lighter;
+        color: $primary-color;
+      }
+    }
+  }
+  
+  &__mobile-cta {
+    background: $primary-color !important;
+    color: $white !important;
+    
+    &:hover {
+      background: $primary-dark !important;
+    }
+  }
+}
